@@ -111,3 +111,27 @@ spec:
               value: {{ .Values.app.prefix }}-app-db
             - name: MONGO_DB_URL
               value: "mongodb://{{ .Values.app.prefix }}-app-db.{{ .Values.app.prefix }}.svc.cluster.local:27017/{{ .Values.app.prefix }}"
+
+        - name: {{ .Values.deployment.servicetypes.name }}-container
+          imagePullPolicy: {{ .Values.deployment.defaultImagePullPolicy }}
+          image: {{ .Values.deployment.servicetypes.image }}
+          ports:
+            - name: http-port
+              containerPort: 8148
+          env:
+            - name: {{ .Values.app.prefix }}-app-db
+              value: {{ .Values.app.prefix }}-app-db
+            - name: MONGO_DB_URL
+              value: "mongodb://{{ .Values.app.prefix }}-app-db.{{ .Values.app.prefix }}.svc.cluster.local:27017/{{ .Values.app.prefix }}"
+
+        - name: {{ .Values.deployment.studdetails.name }}-container
+          imagePullPolicy: {{ .Values.deployment.defaultImagePullPolicy }}
+          image: {{ .Values.deployment.studdetails.image }}
+          ports:
+            - name: http-port
+              containerPort: 8148
+          env:
+            - name: {{ .Values.app.prefix }}-app-db
+              value: {{ .Values.app.prefix }}-app-db
+            - name: MONGO_DB_URL
+              value: "mongodb://{{ .Values.app.prefix }}-app-db.{{ .Values.app.prefix }}.svc.cluster.local:27017/{{ .Values.app.prefix }}"

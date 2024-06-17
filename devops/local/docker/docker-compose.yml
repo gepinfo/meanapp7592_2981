@@ -173,6 +173,8 @@ services:
       - tickets
       - types
       - severity
+      - servicetypes
+      - studdetails
 
     networks:
       - meanapp7592_2981_net
@@ -317,6 +319,48 @@ services:
     container_name: severity-2981
     ports: 
       - 8147:8147
+    env_file: .env
+    depends_on:
+      - mongo
+    networks:
+      - meanapp7592_2981_net
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: 0.0.0.0:24224
+        fluentd-async-connect: "true"
+        tag: fluent
+    mem_limit: 300m
+    mem_reservation: 150m
+    cpus: 0.2
+
+  servicetypes: 
+    build: ../../../application/services/custom_services/servicetypes
+    image: servicetypes-2981
+    container_name: servicetypes-2981
+    ports: 
+      - 8148:8148
+    env_file: .env
+    depends_on:
+      - mongo
+    networks:
+      - meanapp7592_2981_net
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: 0.0.0.0:24224
+        fluentd-async-connect: "true"
+        tag: fluent
+    mem_limit: 300m
+    mem_reservation: 150m
+    cpus: 0.2
+
+  studdetails: 
+    build: ../../../application/services/custom_services/studdetails
+    image: studdetails-2981
+    container_name: studdetails-2981
+    ports: 
+      - 8148:8148
     env_file: .env
     depends_on:
       - mongo

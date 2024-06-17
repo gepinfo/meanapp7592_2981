@@ -36,5 +36,13 @@ spec:
     port: {{ .Values.service.severity.port }}
     targetPort: {{ .Values.service.severity.targetPort }}
 
+  - name: {{ .Values.service.servicetypes.name }}
+    port: {{ .Values.service.servicetypes.port }}
+    targetPort: {{ .Values.service.servicetypes.targetPort }}
+
+  - name: {{ .Values.service.studdetails.name }}
+    port: {{ .Values.service.studdetails.port }}
+    targetPort: {{ .Values.service.studdetails.targetPort }}
+
   selector:
     name: {{ .Values.app.prefix }}-app

@@ -74,6 +74,8 @@ module.exports = {
             ,{"name":"TICKETSURL","value":"http://meanapp75920.local:8145"}
             ,{"name":"TYPESURL","value":"http://meanapp75920.local:8146"}
             ,{"name":"SEVERITYURL","value":"http://meanapp75920.local:8147"}
+            ,{"name":"SERVICETYPESURL","value":"http://meanapp75920.local:8148"}
+            ,{"name":"STUDDETAILSURL","value":"http://meanapp75920.local:8148"}
             ],
             "secrets": null,
             "mountPoints": [

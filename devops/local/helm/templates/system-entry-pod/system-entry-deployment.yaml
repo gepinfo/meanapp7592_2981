@@ -52,3 +52,9 @@ spec:
 
             - name: SEVERITYURL
               value: "http://{{ .Values.app.prefix }}-app.{{ .Values.app.namespace }}.svc.cluster.local:8147"
+
+            - name: SERVICETYPESURL
+              value: "http://{{ .Values.app.prefix }}-app.{{ .Values.app.namespace }}.svc.cluster.local:8148"
+
+            - name: STUDDETAILSURL
+              value: "http://{{ .Values.app.prefix }}-app.{{ .Values.app.namespace }}.svc.cluster.local:8148"
