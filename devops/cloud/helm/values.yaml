@@ -90,6 +90,12 @@ service:
     port: 8148
     targetPort: 8148
 
+  ticket: 
+    name: ticket
+    type: NodePort
+    port: 8150
+    targetPort: 8150
+
 
 deployment:
   defaultImagePullPolicy: IfNotPresent
@@ -138,6 +144,10 @@ deployment:
   studdetails: 
     name: studdetails
     image: geppettotest/meanapp7592-studdetails:1.0
+
+  ticket: 
+    name: ticket
+    image: geppettotest/meanapp7592-ticket:1.0
 
   camundapod:
      name: camundapod

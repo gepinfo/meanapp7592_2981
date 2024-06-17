@@ -175,6 +175,7 @@ services:
       - severity
       - servicetypes
       - studdetails
+      - ticket
 
     networks:
       - meanapp7592_2981_net
@@ -361,6 +362,27 @@ services:
     container_name: studdetails-2981
     ports: 
       - 8148:8148
+    env_file: .env
+    depends_on:
+      - mongo
+    networks:
+      - meanapp7592_2981_net
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: 0.0.0.0:24224
+        fluentd-async-connect: "true"
+        tag: fluent
+    mem_limit: 300m
+    mem_reservation: 150m
+    cpus: 0.2
+
+  ticket: 
+    build: ../../../application/services/custom_services/ticket
+    image: ticket-2981
+    container_name: ticket-2981
+    ports: 
+      - 8150:8150
     env_file: .env
     depends_on:
       - mongo

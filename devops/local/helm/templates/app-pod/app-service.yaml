@@ -44,5 +44,9 @@ spec:
     port: {{ .Values.service.studdetails.port }}
     targetPort: {{ .Values.service.studdetails.targetPort }}
 
+  - name: {{ .Values.service.ticket.name }}
+    port: {{ .Values.service.ticket.port }}
+    targetPort: {{ .Values.service.ticket.targetPort }}
+
   selector:
     name: {{ .Values.app.prefix }}-app

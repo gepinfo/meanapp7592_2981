@@ -58,3 +58,6 @@ spec:
 
             - name: STUDDETAILSURL
               value: "http://{{ .Values.app.prefix }}-app.{{ .Values.app.namespace }}.svc.cluster.local:8148"
+
+            - name: TICKETURL
+              value: "http://{{ .Values.app.prefix }}-app.{{ .Values.app.namespace }}.svc.cluster.local:8150"
